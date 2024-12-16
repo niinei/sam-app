@@ -34,13 +34,13 @@ permissions:
   id-token: write
   contents: read
 jobs:
-  test:
-    if: github.event_name == 'push'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - run: |
-               # trigger the tests here
+test:
+  if: github.event_name == 'push'
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v2
+    - run: |
+        # trigger the tests here
         echo 'Running unit tests'
         pip3 install pytest pytest-mock
         python3 -m pytest tests/unit
